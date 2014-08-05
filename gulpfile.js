@@ -9,16 +9,16 @@ var mocha = require( 'gulp-mocha' );
 var istanbul = require( 'gulp-istanbul' );
 var lcov = require( 'mocha-lcov-reporter' );
 
-gulp.task('jshint', function ( cb ) {
+gulp.task( 'jshint', function ( cb ) {
   gulp.src([
-    './!(coverage)+!(node_modules)+(*)/**/*.js'
+    './!(node_modules|coverage)+(*)/**/*.js'
   ])
   .pipe( jshint() )
   .pipe( jshint.reporter( stylish ) )
   .pipe( jshint.reporter( 'fail' ) );
 });
 
-gulp.task('test', function(cb){
+gulp.task( 'test', function ( cb ) {
   gulp.src([
     './routes/**/!(test.js)+(*.js)',
     './app/index.js'
